@@ -2,7 +2,11 @@
 	<view>
 	<u-search placeholder="搜索歌曲" v-model="keyword" margin="10rpx 16rpx"></u-search>
 	<view class="wrap">
-			<u-swiper :list="list"></u-swiper>
+			<swiper indicator-dots circular>
+				<swiper-item v-for="item in swipers">
+					<image :src="item.imageUrl"></image>
+				</swiper-item>
+			</swiper>
 		</view>
 	<u-grid :col="4">
 			<u-grid-item>
@@ -17,7 +21,7 @@
 			</u-grid-item>
 			<u-grid-item>
 				<u-icon name="order" :size="46"></u-icon>
-				<view class="grid-text">歌单</view>
+				<view class="grid-text" @tap="newSong">新歌速递</view>
 			</u-grid-item>
 			<u-grid-item>
 				<u-icon name="play-circle" :size="46"></u-icon>
@@ -50,16 +54,7 @@
 		data() {
 			return {
 				keyword: '稻香',
-				list: [{
-						image: 'https://cdn.uviewui.com/uview/swiper/1.jpg',
-					},
-					{
-						image: 'https://cdn.uviewui.com/uview/swiper/2.jpg',
-					},
-					{
-						image: 'https://cdn.uviewui.com/uview/swiper/3.jpg',
-					}
-				],
+				swipers: [],
 			}
 		},
 		onLoad() {
@@ -69,6 +64,24 @@
 			/*获取轮播图数据*/
 			getSwipers() {
 				console.log("获取数据")
+				uni.request({
+					url:'http://localhost:3000/banner',
+					success:res=>{
+						console.log(res)
+						if(res.data.code !==200) {
+							return uni.showToast({
+								title:"获取数据失败"
+							})
+						}
+						this.swipers = res.data.banners;
+					}
+				})
+			},
+			newSong(){
+				uni.navigateTo({
+				    url:'/pages/newSong/newSong'
+				})
+				console.log("新歌速递")
 			}
 		}
 	}
@@ -76,7 +89,14 @@
 
 <style lang="scss" scoped>
 	.wrap {
-		padding: 40rpx;
+		swiper{
+			width: 750rpx;
+			height: 350rpx;
+			image{
+				width:100%;
+				height:100%;
+			}
+		}
 	}
 	.badge-icon {
 			position: absolute;

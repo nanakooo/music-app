@@ -18,11 +18,12 @@
 		{
 			"path": "pages/mine/mine"
 		}
+		
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "",
-		"navigationBarBackgroundColor": "#cb99c5",
+		"navigationBarBackgroundColor": "#fffbfb",
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {
