@@ -17,8 +17,13 @@
 		},
 		{
 			"path": "pages/mine/mine"
+		},
+		{
+			"path": "pages/newSong/newSong"
+		},
+		{
+			"path": "pages/level/level"
 		}
-		
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

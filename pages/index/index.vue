@@ -17,7 +17,7 @@
 			<u-grid-item>
 				<image src="/static/image/icon/hot5.png" class="badge-icon"></image>
 				<u-icon name="level" :size="46"></u-icon>
-				<view class="grid-text">排行榜</view>
+				<view class="grid-text" @click="level">排行榜</view>
 			</u-grid-item>
 			<u-grid-item>
 				<u-icon name="order" :size="46"></u-icon>
@@ -79,9 +79,15 @@
 			},
 			newSong(){
 				uni.navigateTo({
-				    url:'/pages/newSong/newSong'
+				       url: '/pages/newSong/newSong'
 				})
 				console.log("新歌速递")
+			},
+			level(){
+				uni.navigateTo({
+				       url: '/pages/level/level'
+				})
+				console.log("排行榜")
 			}
 		}
 	}
