@@ -27,7 +27,11 @@
 </template>
  
 <script>
+	import navBar from '../../component/tabbar'
         export default {
+			components: {
+				'custom-tarbar': navBar
+			},
                 data() {
                         return {
                                 Inv:0
