@@ -1,5 +1,7 @@
 <template>
 	<view>
+		 
+			
 		<u-search placeholder="搜索歌曲" v-model="keyword" margin="10rpx 16rpx"></u-search>
 		<view class="wrap">
 			<swiper indicator-dots circular>
@@ -12,12 +14,12 @@
 			<u-grid-item>
 				<u-badge count="9" :offset="[20, 20]"></u-badge>
 				<u-icon name="calendar" :size="46"></u-icon>
-				<view class="grid-text">每日推荐</view>
+				<view class="grid-text" @tap="everyday">每日推荐</view>
 			</u-grid-item>
 			<u-grid-item>
 				<image src="/static/image/icon/hot5.png" class="badge-icon"></image>
 				<u-icon name="level" :size="46"></u-icon>
-				<view class="grid-text" @click="level">排行榜</view>
+				<view class="grid-text" @tap="level">排行榜</view>
 			</u-grid-item>
 			<u-grid-item>
 				<u-icon name="order" :size="46"></u-icon>
@@ -25,7 +27,7 @@
 			</u-grid-item>
 			<u-grid-item>
 				<u-icon name="play-circle" :size="46"></u-icon>
-				<view class="grid-text">数字专辑</view>
+				<view class="grid-text" @click="cd">数字专辑</view>
 			</u-grid-item>
 		</u-grid>
 		<view class="youLike">
@@ -111,6 +113,18 @@
 					url: '/pages/level/level'
 				})
 				console.log("排行榜")
+			},
+			cd() {
+				uni.navigateTo({
+					url: '/pages/cd/cd'
+				})
+				console.log("数字专辑")
+			},
+			everyday() {
+				uni.navigateTo({
+					url: '/pages/everyday/everyday'
+				})
+				console.log("每日推荐")
 			}
 		}
 	}
@@ -189,11 +203,11 @@
 		background-color: white;
 	}
 	.menuBox{
-		padding-left:20rpx;
+		padding-left:10rpx;
 	.someSong{
 		width:33%;
 		float:left;
-		padding:15rpx 5rpx;
+		padding:15rpx 12rpx;
 		image{
 			width:100%;
 			height:200rpx;

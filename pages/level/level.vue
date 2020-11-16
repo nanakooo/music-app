@@ -1,6 +1,5 @@
 <template>
 	<view>
-		<custom-tarbar :selected="0"></custom-tarbar>
 		<view class="youLike">
 			<h3>榜单推荐</h3>
 			<view class="likeList">
