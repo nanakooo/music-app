@@ -27,7 +27,7 @@
 			</u-grid-item>
 			<u-grid-item>
 				<u-icon name="play-circle" :size="46"></u-icon>
-				<view class="grid-text" @click="cd">数字专辑</view>
+				<view class="grid-text" @tap="cd">数字专辑</view>
 			</u-grid-item>
 		</u-grid>
 		<view class="youLike">
@@ -180,7 +180,7 @@
 		width: 80%;
 		padding: 10rpx 50rpx;
 		height: 280rpx;
-		white-space: nowrap;
+		
 	}
 
 	.item1,
@@ -203,11 +203,11 @@
 		background-color: white;
 	}
 	.menuBox{
-		padding-left:10rpx;
+		padding-left:12rpx;
 	.someSong{
 		width:33%;
 		float:left;
-		padding:15rpx 12rpx;
+		padding:15rpx 8rpx;
 		image{
 			width:100%;
 			height:200rpx;
