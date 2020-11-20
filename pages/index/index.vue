@@ -90,7 +90,7 @@
 			getLists() {
 				console.log("获取数据")
 				uni.request({
-					url: 'http://localhost:3000/personalized?limit=6',
+					url: 'http://localhost:3000/personalized?limit=9',
 					success: res => {
 						console.log(res)
 						if (res.data.code !== 200) {
@@ -205,12 +205,17 @@
 	.menuBox{
 		padding-left:12rpx;
 	.someSong{
-		width:33%;
-		float:left;
-		padding:15rpx 8rpx;
+		width:33.3%;
+		display: inline-block;
+		padding:18rpx 9rpx;
 		image{
 			width:100%;
 			height:200rpx;
+		}
+		span{
+			text-overflow: ellipsis;
+		
+			overflow: hidden;
 		}
 	  }
 	}

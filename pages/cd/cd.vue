@@ -16,7 +16,7 @@
 			<view class="grid-text">已购</view>
 		</u-grid-item>
 	</u-grid>
-	<u-line color="#eaeaea" hair-line:false></u-line>
+	<u-gap height="20" bg-color="#f5f5f5"></u-gap>
 	<view class="newCd">
 		<h3>最新上架&nbsp&gt</h3>
 		<view class="menuBox">
@@ -29,6 +29,10 @@
 	</view>
 	<view class="cdLevel">
 		<h3>数字专辑榜&nbsp&gt</h3>
+		<view class="cdLevelItem">
+			<img align="absmiddle" src="http://p3.music.126.net/0Yus7yGK8elVx0gj7N-NZQ==/109951165434283247.jpg"></image>
+			<span>{{item.name}}</span>
+		</view>
 	</view>
 	</view>
 </template>
@@ -80,6 +84,11 @@
 			image{
 				width:98%;
 				height:200rpx;
+				border:3px solid pink
+			}
+			span{
+				 text-overflow: ellipsis; 
+				 white-space: nowrap;
 			}
 		  }
 		
@@ -87,6 +96,11 @@
 	.cdLevel{
 		
 		padding-left:25rpx;
+		img{
+			width:20%;
+			height:160rpx;
+			padding: 20rpx;
+		}
 		
 	}
 </style>

@@ -9,38 +9,40 @@
 						<view :class="['inv-h',Inv==4?'inv-h-se':'']" @click="Inv=4">韩国</view>
                 </view>
                 <view class="allSong" v-show="Inv == 0">
-                        <h3 style="padding-top:100rpx;text-align: center; color: white;">全部</h3>
+                        <h3 style="padding-top:100rpx;text-align: center; color: white; ">全部</h3>
 						<view class="allItems" v-for="item in allSongs">
 							<span>{{item.name}}</span>
-							<image src="item.picUrl"></image>
+							<img src="item.picUrl"></image>
 						</view>
                 </view>
                 <view class="allSong" v-show="Inv == 1">
-                        <h3 style="padding-top:100rpx;text-align: center; color: white;">华语</h3>
+                        <h3 style="padding-top:100rpx;text-align: center; color: white;"  align="absmiddle">华语</h3>
 						<view class="allItems" v-for="item in chinaSongs">
 							<span>{{item.name}}</span>
-							<image src="item.picUrl"></image>
+							<img src="item.picUrl"></image>
 						</view>
                 </view>
 				<view class="allSong" v-show="Inv == 2">
 				        <h3 style="padding-top:100rpx;text-align: center; color: white;">欧美</h3>
 						<view class="allItems" v-for="item in AmericaSongs">
-							<image src="http://p4.music.126.net/Zmo3tpVvWpsrTmKKQGm9pQ==/109951165441392074.jpg" style="width:150rpx;height:150rpx;"></image>
+							<img src="http://p4.music.126.net/Zmo3tpVvWpsrTmKKQGm9pQ==/109951165441392074.jpg" style="width:150rpx;height:150rpx;"></image>
 							<span>{{item.name}}</span>
 						</view>
 				</view>
 				<view class="allSong" v-show="Inv == 3">
 				        <h3 style="padding-top:100rpx;text-align: center; color: white;">日本</h3>
 						<view class="allItems" v-for="item in japanSongs">
-							<image src="http://p3.music.126.net/0Yus7yGK8elVx0gj7N-NZQ==/109951165434283247.jpg" style="width:150rpx;height:150rpx;"></image>
+							<img src="http://p3.music.126.net/0Yus7yGK8elVx0gj7N-NZQ==/109951165434283247.jpg" align="absmiddle" style="width:150rpx;height:150rpx;"></image>
 							<span>{{item.name}}</span>
+							<u-icon name="play-circle" :size="60" style="padding-right:10rpx"></u-icon>
 						</view>
 				</view>
 				<view class="allSong" v-show="Inv == 4">
 				        <h3 style="padding-top:100rpx;text-align: center; color: white;">韩国</h3>
 						<view class="allItems" v-for="item in koreanSongs">
 							<span>{{item.name}}</span>
-							<image src="item.picUrl"></image>
+							<img src="item.picUrl"></image>
+							
 						</view>
 				</view>
         </view>
@@ -147,10 +149,10 @@
         .allItems{
 			
 			background-color: white;
-			image{
-				position: absolute;
+			img{
 				width:50rpx;
 				height:50rpx;
+				margin:10rpx;
 			}
 		
 		}
