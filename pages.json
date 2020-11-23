@@ -1,36 +1,63 @@
 {
 	"easycom": {
-		        "autoscan": true,
-		        "custom": {
-		        	// uview-ui
-					"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue",
-		            // @dcloudio
-		            "^uni-(.*)": "@dcloudio/uniui/lib/uni-$1/uni-$1.vue"
-		        }
-		    },
+		"autoscan": true,
+		"custom": {
+			// uview-ui
+			"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue",
+			// @dcloudio
+			"^uni-(.*)": "@dcloudio/uniui/lib/uni-$1/uni-$1.vue"
+		}
+	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/index/index"
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
 		},
 		{
-			"path": "pages/video/video"
+			"path": "pages/video/video",
+			"style": {
+				"navigationBarTitleText": "视频"
+			}
 		},
 		{
-			"path": "pages/mine/mine"
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
 		},
 		{
-			"path": "pages/newSong/newSong"
+			"path": "pages/newSong/newSong",
+			"style": {
+				"navigationBarTitleText": "新歌"
+			}
 		},
 		{
-			"path": "pages/level/level"
+			"path": "pages/level/level",
+			"style": {
+				"navigationBarTitleText": "排行榜"
+			}
 		},
 		{
-			"path": "pages/cd/cd"
+			"path": "pages/cd/cd",
+			"style": {
+				"navigationBarTitleText": "数字专辑"
+			}
 		},
 		{
-			"path": "pages/everyday/everyday"
+			"path": "pages/everyday/everyday",
+			"style": {
+				"navigationBarTitleText": "每日推荐"
+			}
+		},
+		{
+			"path": "pages/songDetail/songDetail"
+		},
+		{
+			"path": "pages/search/search"
 		}
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "",
@@ -38,26 +65,25 @@
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {
-	"color": "black",  
-	    "selectedColor": "#ff557f",  
-	    "borderStyle": "black" ,
-	    "list": [{  
-	     "selectedIconPath": "icons/home.png",  
-	      "iconPath": "home",  
-	      "pagePath": "pages/index/index",  
-	      "text": "首页"  
-		  
-	    }, {  
-	      "selectedIconPath": "images/icon_invest_press.png",  
-	     "iconPath": "home",
-	      "pagePath": "pages/video/video",  
-	      "text": "视频"  
-	    },{  
-	    "selectedIconPath": "images/icon_mine_press.png",  
-	    "iconPath": "",  
-	      "pagePath": "pages/mine/mine",  
-	      "text": "我的"  
-	    }
-	   ] 
-	   }
+		"color": "black",
+		"selectedColor": "#ff557f",
+		"borderStyle": "black",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "icons/home.png",
+			"selectedIconPath": "icons/home-active.png",
+			"text": "首页"
+
+		}, {
+			"selectedIconPath": "images/icon_invest_press.png",
+			"iconPath": "home",
+			"pagePath": "pages/video/video",
+			"text": "视频"
+		}, {
+			"selectedIconPath":  "icons/member-active.png",
+			"iconPath": "icons/member.png",
+			"pagePath": "pages/mine/mine",
+			"text": "我的"
+		}]
+	}
 }

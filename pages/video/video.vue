@@ -19,8 +19,11 @@
 			<!-- 滑块视图 -->
 			<swiper :current="tabIndex" @change="tabChange"><!-- current:当前所在滑块的index -->
 				<swiper-item>
-					<view class="content">
+					<view class="content" v-show="tabIndex == 0">
 						<view class="videoItem"></view>
+					</view>
+					<view class="content" v-show="tabIndex == 1">
+						1
 					</view>
 				</swiper-item>
 			</swiper>

@@ -9,39 +9,42 @@
 						<view :class="['inv-h',Inv==4?'inv-h-se':'']" @click="Inv=4">韩国</view>
                 </view>
                 <view class="allSong" v-show="Inv == 0">
-                        <h3 style="padding-top:100rpx;text-align: center; color: white; ">全部</h3>
-						<view class="allItems" v-for="item in allSongs">
-							<span>{{item.name}}</span>
-							<img src="item.picUrl"></image>
+                        <h3 style="padding-top:300rpx;text-align: center; color: white; ">全部</h3>
+						<view class="allItems" v-for="(item,index) in allSongs" :key="index">
+							<span>{{index+1}}. {{item.name}}&nbsp&nbsp{{item.alias}}</span>
+							<p>{{item.artists[0].name}}</p>
+							
 						</view>
                 </view>
                 <view class="allSong" v-show="Inv == 1">
-                        <h3 style="padding-top:100rpx;text-align: center; color: white;"  align="absmiddle">华语</h3>
-						<view class="allItems" v-for="item in chinaSongs">
-							<span>{{item.name}}</span>
-							<img src="item.picUrl"></image>
+                        <h3 style="padding-top:300rpx;text-align: center; color: white;"  align="absmiddle">华语</h3>
+						<view class="allItems" v-for="(item,index) in chinaSongs" :key="index">
+							<span>{{index+1}}. {{item.name}}&nbsp&nbsp{{item.alias}}</span>
+							<p>{{item.artists[0].name}}</p>
+							
 						</view>
                 </view>
 				<view class="allSong" v-show="Inv == 2">
-				        <h3 style="padding-top:100rpx;text-align: center; color: white;">欧美</h3>
-						<view class="allItems" v-for="item in AmericaSongs">
-							<img src="http://p4.music.126.net/Zmo3tpVvWpsrTmKKQGm9pQ==/109951165441392074.jpg" style="width:150rpx;height:150rpx;"></image>
-							<span>{{item.name}}</span>
+				        <h3 style="padding-top:300rpx;text-align: center; color: white;">欧美</h3>
+						<view class="allItems" v-for="(item,index) in AmericaSongs" :key="index">
+						<span>{{index+1}}. {{item.name}}&nbsp&nbsp{{item.alias}}</span>
+						<p>{{item.artists[0].name}}</p>
+						
 						</view>
 				</view>
 				<view class="allSong" v-show="Inv == 3">
-				        <h3 style="padding-top:100rpx;text-align: center; color: white;">日本</h3>
-						<view class="allItems" v-for="item in japanSongs">
-							<img src="http://p3.music.126.net/0Yus7yGK8elVx0gj7N-NZQ==/109951165434283247.jpg" align="absmiddle" style="width:150rpx;height:150rpx;"></image>
-							<span>{{item.name}}</span>
-							<u-icon name="play-circle" :size="60" style="padding-right:10rpx"></u-icon>
+				        <h3 style="padding-top:300rpx;text-align: center; color: white;">日本</h3>
+						<view class="allItems" v-for="(item,index) in japanSongs" :key="index">
+							<span>{{index+1}}. {{item.name}}&nbsp&nbsp{{item.alias}}</span>
+							<p>{{item.artists[0].name}}</p>
+					
 						</view>
 				</view>
 				<view class="allSong" v-show="Inv == 4">
-				        <h3 style="padding-top:100rpx;text-align: center; color: white;">韩国</h3>
-						<view class="allItems" v-for="item in koreanSongs">
-							<span>{{item.name}}</span>
-							<img src="item.picUrl"></image>
+				        <h3 style="padding-top:300rpx;text-align: center; color: white;">韩国</h3>
+						<view class="allItems" v-for="(item,index) in koreanSongs" :key="index">
+							<span>{{index+1}}. {{item.name}}&nbsp&nbsp{{item.alias}}</span>
+							<p>{{item.artists[0].name}}</p>
 							
 						</view>
 				</view>
@@ -139,21 +142,27 @@
         }
 </script>
          
-<style>
+<style lang="scss">
         .inv-h-w{background-color: #FFFFFF;height: 100upx;display: flex;}
         .inv-h{font-size: 30upx;flex: 1;text-align: center;color: #C9C9C9;height: 100upx;line-height: 100upx;}
         .inv-h-se{color: #5BA7FF;border-bottom: 4upx solid #5BA7FF;}
 		.allSong{
-			background-color: #366092;
+			 height: 200px;
+			background-image: linear-gradient(#74abe6, #415e78);
 		}
         .allItems{
-			
+			padding:12rpx 12rpx;
 			background-color: white;
-			img{
-				width:50rpx;
-				height:50rpx;
-				margin:10rpx;
+			span{
+				font-size:32rpx;
+				display: inline-block;
+				width:650rpx;
+			    overflow-x:hidden ;
+				color:#366092;
+				}
+			p{
+				padding-left:5rpx;
+				color:#6c706d;
 			}
-		
 		}
 </style>

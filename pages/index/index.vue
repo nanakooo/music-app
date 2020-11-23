@@ -183,7 +183,7 @@
 	.someSong{
 		width:33.3%;
 		display: inline-block;
-		padding:18rpx 10rpx;
+		padding:18rpx 12rpx;
 		image{
 			width:100%;
 			height:200rpx;

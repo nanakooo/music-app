@@ -53,7 +53,8 @@
 
 <style lang="scss">
 	.page {
-		background-color: #c3d7e3;
+		height: 300px;
+		background-image: linear-gradient(#74abe6, #e5c9e3);
 	}
 
 	.myInfo {
