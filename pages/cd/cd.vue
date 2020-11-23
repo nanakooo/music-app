@@ -31,7 +31,7 @@
 		<h3>数字专辑榜&nbsp&gt</h3>
 		<view class="cdLevelItem">
 			<img align="absmiddle" src="http://p3.music.126.net/0Yus7yGK8elVx0gj7N-NZQ==/109951165434283247.jpg"></image>
-			<span>{{item.name}}</span>
+			<span>歌名</span>
 		</view>
 	</view>
 	</view>
@@ -87,8 +87,11 @@
 				border:3px solid pink
 			}
 			span{
-				 text-overflow: ellipsis; 
-				 white-space: nowrap;
+				 text-overflow: ellipsis;
+				  display: inline-block;
+				  white-space: nowrap;
+				  overflow-x:hidden;
+				  width:200rpx;
 			}
 		  }
 		

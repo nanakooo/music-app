@@ -42,7 +42,7 @@
 	    "selectedColor": "#ff557f",  
 	    "borderStyle": "black" ,
 	    "list": [{  
-	     "selectedIconPath": "images/icon_consult_press.png",  
+	     "selectedIconPath": "icons/home.png",  
 	      "iconPath": "home",  
 	      "pagePath": "pages/index/index",  
 	      "text": "首页"  

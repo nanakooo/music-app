@@ -30,21 +30,7 @@
 				<view class="grid-text" @tap="cd">数字专辑</view>
 			</u-grid-item>
 		</u-grid>
-		<view class="youLike">
-			<h2>猜你喜欢</h2>
-			<scroll-view scroll-x="true">
-				<view class="item1">
-
-				</view>
-				<view class="item2">
-
-				</view>
-				<view class="item3">
-
-				</view>
-			</scroll-view>
-
-		</view>
+		<u-gap height="20" bg-color="#f5f5f5"></u-gap>
 		<view class="musicMenu">
 			<h2>精选歌单</h2>
 			<view class="menuBox">
@@ -90,7 +76,7 @@
 			getLists() {
 				console.log("获取数据")
 				uni.request({
-					url: 'http://localhost:3000/personalized?limit=9',
+					url: 'http://localhost:3000/personalized?limit=6',
 					success: res => {
 						console.log(res)
 						if (res.data.code !== 200) {
@@ -157,18 +143,10 @@
 		color: $u-type-info;
 	}
 
-	.youLike {
-		padding: 12rpx 35rpx;
-		background-color: #FEF0F0;
-	}
-
-	.youLike>h2 {
-		color: darkred;
-
-	}
+	
 
 	.musicMenu>h2 {
-		color: darkred;
+		color: #3F536E;
 	}
 
 	.musicMenu {
@@ -202,21 +180,20 @@
 	.item3 {
 		background-color: white;
 	}
-	.menuBox{
-		padding-left:12rpx;
 	.someSong{
 		width:33.3%;
 		display: inline-block;
-		padding:18rpx 9rpx;
+		padding:18rpx 10rpx;
 		image{
 			width:100%;
 			height:200rpx;
 		}
 		span{
 			text-overflow: ellipsis;
-		
-			overflow: hidden;
+			 display: inline-block;
+			 white-space: nowrap;
+			 overflow-x:hidden;
+			 width:220rpx;
 		}
 	  }
-	}
 </style>
