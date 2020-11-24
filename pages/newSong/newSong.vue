@@ -11,7 +11,7 @@
                 <view class="allSong" v-show="Inv == 0">
                         <h3 style="padding-top:300rpx;text-align: center; color: white; ">全部</h3>
 						<view class="allItems" v-for="(item,index) in allSongs" :key="index">
-							<span>{{index+1}}. {{item.name}}&nbsp&nbsp{{item.alias}}</span>
+							<span @click="toSong(item.id)">{{index+1}}. {{item.name}}&nbsp&nbsp{{item.alias}}</span>
 							<p>{{item.artists[0].name}}</p>
 							
 						</view>
@@ -35,7 +35,7 @@
 				<view class="allSong" v-show="Inv == 3">
 				        <h3 style="padding-top:300rpx;text-align: center; color: white;">日本</h3>
 						<view class="allItems" v-for="(item,index) in japanSongs" :key="index">
-							<span>{{index+1}}. {{item.name}}&nbsp&nbsp{{item.alias}}</span>
+							<span @click="toSong(item.id)">{{index+1}}. {{item.name}}&nbsp&nbsp{{item.alias}}</span>
 							<p>{{item.artists[0].name}}</p>
 					
 						</view>
@@ -138,6 +138,37 @@
 								}
 							})
 						},
+						toSong(id) {
+							let songId=id
+							uni.request({
+								url: 'http://localhost:3000/song/url?id='+songId,
+								success: res => {
+									console.log(res)
+									if (res.data.code !== 200) {
+										return uni.showToast({
+											title: "获取数据失败"
+										})
+									}else{
+										uni.navigateTo({
+											url: '/pages/songDetail/songDetail?id='+id
+										})
+										let src=res.data.data[0].url;
+										const Audio = uni.createInnerAudioContext();
+										Audio.autoplay = true;
+										Audio.src = src;
+										Audio.play();
+										Audio.onError((res) => {
+											console.log(res.errMsg);
+											console.log(res.errCode);
+										});
+										Audio.onPause(function(){
+											console.log('end');
+											Audio.destroy();
+										})
+									}
+								}
+							})
+						}
                 }
         }
 </script>

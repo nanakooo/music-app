@@ -34,7 +34,7 @@
 		<view class="musicMenu">
 			<h2>精选歌单</h2>
 			<view class="menuBox">
-				<view class="someSong" v-for="item in lists">
+				<view class="someSong" v-for="item in lists" @click="toMenuDetail(item.id)">
 					<image :src="item.picUrl"></image>
 					<span>{{item.name}}</span>
 				</view>
@@ -111,6 +111,11 @@
 					url: '/pages/everyday/everyday'
 				})
 				console.log("每日推荐")
+			},
+			toMenuDetail() {
+				uni.navigateTo({
+					url:'/pages/menuDetail/menuDetail'
+				})
 			}
 		}
 	}
@@ -119,7 +124,7 @@
 <style lang="scss" scoped>
 	.wrap {
 		swiper {
-			width: 750rpx;
+			width: 100%;
 			height: 350rpx;
 
 			image {
