@@ -59,6 +59,9 @@
 		},
 		{
 			"path": "pages/menuDetail/menuDetail"
+		},
+		{
+			"path": "pages/login/login"
 		}
 	],
 	"globalStyle": {

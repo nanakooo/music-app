@@ -2,7 +2,7 @@
 	<view class="page">
 		<view class="myInfo">
 			<u-avatar></u-avatar>
-			<view class="text"><span>登录</span></view>
+			<view class="text" @tap="toLogin"><span>登录</span></view>
 		</view>
 		<view class="myMenu">
 			<u-grid :col="4">
@@ -46,6 +46,13 @@
 		data() {
 			return {
 				Inv: 0,
+			}
+		},
+		methods:{
+			toLogin() {
+				uni.navigateTo({
+					url:'../login/login'
+				})
 			}
 		}
 	}
