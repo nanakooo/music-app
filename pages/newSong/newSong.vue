@@ -13,7 +13,6 @@
 						<view class="allItems" v-for="(item,index) in allSongs" :key="index">
 							<span @click="toSong(item.id)">{{index+1}}. {{item.name}}&nbsp&nbsp{{item.alias}}</span>
 							<p>{{item.artists[0].name}}</p>
-							
 						</view>
                 </view>
                 <view class="allSong" v-show="Inv == 1">

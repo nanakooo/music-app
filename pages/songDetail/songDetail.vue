@@ -1,7 +1,7 @@
 <template>
 	<view class="allPage">
 		<view class="songImg">
-			<img src="that.picUrl">
+			<img :src="pic">
 		</view>
 		<view class="player">
 			<u-icon name="skip-back-left" color="white" size="140"></u-icon>
@@ -16,21 +16,12 @@
 	export default {
 		data() {
 			return {
-
+			   pic:""
 			};
 		},
-		onLoad(options) {
-			uni.request({
-				url: 'http://localhost:3000/song/url?id='+ options.id,
-				success: res => {
-					console.log(res)
-					if (res.data.code !== 200) {
-						return uni.showToast({
-							title: "获取数据失败"
-						})
-					}
-				}
-			})
+		onLoad(option) {
+			console.log(option);
+			
 			
 		},
 		methods: {}

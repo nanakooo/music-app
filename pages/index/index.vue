@@ -1,8 +1,8 @@
 <template>
 	<view>
-		 
-			
-		<u-search placeholder="搜索歌曲" v-model="keyword" margin="10rpx 16rpx"></u-search>
+
+
+		<u-search  :show-action="true" action-text="搜索" :animation="true" placeholder="搜索歌曲" v-model="keyword" margin="10rpx 16rpx"></u-search>
 		<view class="wrap">
 			<swiper indicator-dots circular>
 				<swiper-item v-for="item in swipers">
@@ -34,7 +34,7 @@
 		<view class="musicMenu">
 			<h2>精选歌单</h2>
 			<view class="menuBox">
-				<view class="someSong" v-for="item in lists" @click="toMenuDetail(item.id,item.picUrl)">
+				<view class="someSong" v-for="item in lists" @click="toMenuDetail(item.id,item.picUrl,item.name)">
 					<image :src="item.picUrl"></image>
 					<span>{{item.name}}</span>
 				</view>
@@ -73,7 +73,7 @@
 			},
 			getLists() {
 				uni.request({
-					url: 'http://localhost:3000/personalized?limit=9',
+					url: 'http://localhost:3000/personalized?limit=6',
 					success: res => {
 						if (res.data.code !== 200) {
 							return uni.showToast({
@@ -106,11 +106,15 @@
 				})
 				console.log("每日推荐")
 			},
-			toMenuDetail(id,img) {
-				let item = {id: id,songImg:img}
+			toMenuDetail(id, img, name) {
+				let item = {
+					id: id,
+					songImg: img,
+					name: name
+				}
 				uni.navigateTo({
-					url: '/pages/menuDetail/menuDetail?msg=' + encodeURIComponent(JSON.stringify(item) )
-				},)
+					url: '/pages/menuDetail/menuDetail?msg=' + encodeURIComponent(JSON.stringify(item))
+				}, )
 
 			}
 		}
@@ -144,7 +148,7 @@
 		color: $u-type-info;
 	}
 
-	
+
 
 	.musicMenu>h2 {
 		color: #3F536E;
@@ -159,7 +163,7 @@
 		width: 80%;
 		padding: 10rpx 50rpx;
 		height: 280rpx;
-		
+
 	}
 
 	.item1,
@@ -181,20 +185,23 @@
 	.item3 {
 		background-color: white;
 	}
-	.someSong{
-		width:33.3%;
+
+	.someSong {
+		width: 33.3%;
 		display: inline-block;
-		padding:18rpx 12rpx;
-		image{
-			width:100%;
-			height:200rpx;
+		padding: 18rpx 12rpx;
+
+		image {
+			width: 100%;
+			height: 200rpx;
 		}
-		span{
+
+		span {
 			text-overflow: ellipsis;
-			 display: inline-block;
-			 white-space: nowrap;
-			 overflow-x:hidden;
-			 width:220rpx;
+			display: inline-block;
+			white-space: nowrap;
+			overflow-x: hidden;
+			width: 220rpx;
 		}
-	  }
+	}
 </style>
