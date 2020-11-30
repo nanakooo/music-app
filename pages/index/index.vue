@@ -34,7 +34,7 @@
 		<view class="musicMenu">
 			<h2>精选歌单</h2>
 			<view class="menuBox">
-				<view class="someSong" v-for="item in lists" @click="toMenuDetail(item.id)">
+				<view class="someSong" v-for="item in lists" @click="toMenuDetail(item.id,item.picUrl)">
 					<image :src="item.picUrl"></image>
 					<span>{{item.name}}</span>
 				</view>
@@ -59,11 +59,9 @@
 		methods: {
 			/*获取轮播图数据*/
 			getSwipers() {
-				console.log("获取数据")
 				uni.request({
 					url: 'http://localhost:3000/banner',
 					success: res => {
-						console.log(res)
 						if (res.data.code !== 200) {
 							return uni.showToast({
 								title: "获取数据失败"
@@ -74,11 +72,9 @@
 				})
 			},
 			getLists() {
-				console.log("获取数据")
 				uni.request({
 					url: 'http://localhost:3000/personalized?limit=9',
 					success: res => {
-						console.log(res)
 						if (res.data.code !== 200) {
 							return uni.showToast({
 								title: "获取数据失败"
@@ -92,13 +88,11 @@
 				uni.navigateTo({
 					url: '/pages/newSong/newSong'
 				})
-				console.log("新歌速递")
 			},
 			level() {
 				uni.navigateTo({
 					url: '/pages/level/level'
 				})
-				console.log("排行榜")
 			},
 			cd() {
 				uni.navigateTo({
@@ -112,11 +106,12 @@
 				})
 				console.log("每日推荐")
 			},
-			toMenuDetail(id) {
+			toMenuDetail(id,img) {
+				let item = {id: id,songImg:img}
 				uni.navigateTo({
-					url:'/pages/menuDetail/menuDetail?id='+id
-				})
-				alert(id)
+					url: '/pages/menuDetail/menuDetail?msg=' + encodeURIComponent(JSON.stringify(item) )
+				},)
+
 			}
 		}
 	}

@@ -1,26 +1,34 @@
 <template>
 	<view>
-		<view class="imgBox" v-for="(item,index) in pics" :key="index">
+	<view class="imgBox" v-for="(item,index) in pics" :key="index">
 			<image :src="item.picUrl">
-		</view>
-		<view class="songMenu">
-			
-		</view>
 	</view>
+	=======
+	<image :src="pic">
+		<!-- 		<view class="imgBox" v-for="item in pics">
+			<img :src="item.coverImgUrl">
+		</view> -->
+		<view class="songMenu">
+
+		</view>
+		</view>
 </template>
 
 <script>
-	export default{
-		data(){
-			return{
-				pics:[]
+	export default {
+		data() {
+			return {
+				pics: [],
+				pic: ""
 			}
 		},
-		onLoad(option){
-			var songId = option.id;
-			console.log("id是"+songId);
+		onLoad(option) {
+			console.log(option);
+			let item = JSON.parse(decodeURIComponent(option.msg))
+			var songId = option.msg.id;
+			this.pic = item.songImg;
 			uni.request({
-				url: 'http://localhost:3000/personalized/detail?id='+songId,
+				url: 'http://localhost:3000/personalized/detail?id=' + songId,
 				success: res => {
 					console.log(res);
 					console.log(songId);
@@ -28,29 +36,28 @@
 						return uni.showToast({
 							title: "获取数据失败"
 						})
-					}else{
+					} else {
 						uni.navigateTo({
-							url: 'http://localhost:3000/personalized/detail?id='+songId
+							url: 'http://localhost:3000/personalized/detail?id=' + songId
 						})
 					}
-					this.pics = res.data.result;
 				}
 			})
-		}
+		},
 	}
 </script>
 
 <style>
-	page{
-		
+	page {
+
 		background-color: #1c5a98;
 	}
-	.imgBox{
-		
-	}
-	.songMenu{
+
+	.imgBox {}
+
+	.songMenu {
 		background-color: white;
-		width:100%;
+		width: 100%;
 		margin-top: 400rpx;
 	}
 </style>
