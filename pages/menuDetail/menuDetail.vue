@@ -1,10 +1,11 @@
 <template>
 	<view>
-		<view class="imgBox" v-for="item in pics">
-			<img :src="item.picUrl">
-		</view>
+			<image :src="pic">
+<!-- 		<view class="imgBox" v-for="item in pics">
+			<img :src="item.coverImgUrl">
+		</view> -->
 		<view class="songMenu">
-			
+		
 		</view>
 	</view>
 </template>
@@ -13,23 +14,29 @@
 	export default{
 		data(){
 			return{
-				pics:[]
+				pics:[],
+				pic:""
 			}
 		},
 		onLoad(option){
-			var songId = option.id;
-			console.log("id是"+songId);
+				console.log(option);
+				let item=JSON.parse(decodeURIComponent(option.msg))
+				var songId = option.msg.id;
+				this.pic=item.songImg;
 			uni.request({
-				url: 'http://localhost:3000/personalized/detail?id=songId',
+				url: 'http://localhost:3000/related/playlist?id='+songId,
 				success: res => {
-					console.log(res);
-					console.log(songId);
-					if (res.data.code !== 200) {
-						return uni.showToast({
-							title: "获取数据失败"
-						})
+					console.log(res.data)
+					if (res.data.code == 200) {
+				
+							this.pics=res.data.playlists
+					}else{
+					return uni.showToast({
+						title: "获取数据失败"
+					})
 					}
-					this.pics = res.data.result;
+			
+				
 				}
 			})
 		}
