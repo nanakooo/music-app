@@ -1,7 +1,7 @@
 <template>
 	<view>
-
-
+		 
+			
 		<u-search placeholder="搜索歌曲" v-model="keyword" margin="10rpx 16rpx"></u-search>
 		<view class="wrap">
 			<swiper indicator-dots circular>
@@ -114,7 +114,7 @@
 			},
 			toMenuDetail(id) {
 				uni.navigateTo({
-					url: '/pages/menuDetail/menuDetail?id=' + id
+					url:'/pages/menuDetail/menuDetail?id='+id
 				})
 				alert(id)
 			}
@@ -149,7 +149,7 @@
 		color: $u-type-info;
 	}
 
-
+	
 
 	.musicMenu>h2 {
 		color: #3F536E;
@@ -164,7 +164,7 @@
 		width: 80%;
 		padding: 10rpx 50rpx;
 		height: 280rpx;
-
+		
 	}
 
 	.item1,
@@ -186,23 +186,20 @@
 	.item3 {
 		background-color: white;
 	}
-
-	.someSong {
-		width: 33.3%;
+	.someSong{
+		width:33.3%;
 		display: inline-block;
-		padding: 18rpx 12rpx;
-
-		image {
-			width: 100%;
-			height: 200rpx;
+		padding:18rpx 12rpx;
+		image{
+			width:100%;
+			height:200rpx;
 		}
-
-		span {
+		span{
 			text-overflow: ellipsis;
-			display: inline-block;
-			white-space: nowrap;
-			overflow-x: hidden;
-			width: 220rpx;
+			 display: inline-block;
+			 white-space: nowrap;
+			 overflow-x:hidden;
+			 width:220rpx;
 		}
-	}
+	  }
 </style>
